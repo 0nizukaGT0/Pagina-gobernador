@@ -1,0 +1,8 @@
+.link-cursor:hover{
+color:blue;
+cursor:pointer;
+border-bottom: 1px solid blue;
+}
+.fas:hover{
+color :grey;
+}

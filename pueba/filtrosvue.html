@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div id="contenedor">
+    <div id="barra-navegacion">
+    </div>
+    <div id="contenido-cuerpo">
+      <botonmigu :miembros="members"></botonmigu>
+      <button class="btn btn-warning">filtraR</button>
+      <!-- parties -->
+      <div v-for="party in parties">
+        <label class="form-check-label">
+          <input type="checkbox" :value="party" @click="miembrosFiltrados()">{{party}}
+        </label>
+      </div>
+      <!-- states -->
+      <button class="btn btn-secondary">filtraMO</button>
+      <select class="form-control custom-select" id="select_State" name="state" @change="miembrosFiltrados()">
+        <option value="all" >all</option>
+        <option v-for="(value) in estados" :value="value">{{value}}</option>
+      </select>
+      <!-- boton reload -->
+      <button class="btn btn-danger" @click="reload">reload</button>
+
+      <table>
+        <tr v-for="(value) in members">
+          <td>
+            <span>
+              {{value.first_name}} {{value.middle_name}} {{value.last_name}}</span>
+          </td>
+          <td style="text-align:center">{{value.party}}</td>
+          <td style="text-align:center">{{value.state}}</td>
+          <td style="text-align:center">{{value.seniority}}</td>
+          <td style="text-align:center">{{value.votes_with_party_pct}}</td>
+        </tr>
+      </table>
+    </div>
+    <div id="pie-pagina"></div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="pruba.js">
+  </script>
+</body>
+
+</html>
