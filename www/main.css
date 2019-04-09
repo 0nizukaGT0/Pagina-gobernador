@@ -6,3 +6,24 @@ border-bottom: 1px solid blue;
 .fas:hover{
 color :grey;
 }
+.container{
+  display: none;
+}
+.containerPhone{
+  display: block;
+  top:50%;
+  left: 25%;
+  right: 25%;
+  border: solid black 3px;
+}
+.containerPhone div{
+  padding: 5px;
+}
+@media only screen and (min-width: 600px){
+  .container{
+    display: block;
+  }
+  .containerPhone{
+    display: none;
+  }
+}
